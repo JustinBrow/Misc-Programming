@@ -1,2 +1,7 @@
 ## OOMManager  
-Small application to notify our team when an application is potentially leaking memory (Looking at you Adobe Reader).
+Small "service" application to notify our team when an application is potentially leaking memory (Looking at you Adobe Reader).  
+
+### Install  
+Hijacked a couple methods in the installer so it can install/uninstall itself.  
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe C:\temp\OOMManager.exe /LogFile=  
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe -u C:\temp\OOMManager.exe /LogFile=
