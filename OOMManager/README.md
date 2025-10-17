@@ -1,5 +1,5 @@
 ## OOMManager  
-Small "service" application to notify our team when an application is potentially leaking memory (Looking at you Adobe Reader). The memory limit chosen (18 GB) is fairly arbitrary.  
+Small "service" application to notify our team when an application is potentially leaking memory (Looking at you Adobe Reader). The memory limit chosen (18 GB) is fairly arbitrary. Couldn't figure out how to run the application logic in a separate thread so it just runs on a timer.  
 
 ### Install  
 Hijacked a couple methods in the installer class so it can install/uninstall itself.  
