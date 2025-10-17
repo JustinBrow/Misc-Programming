@@ -13,9 +13,9 @@ namespace HomeLab
       }
       public static bool IsAdministrator()
       {
-         using (PrincipalSearchResult<Principal> searchResult = UserPrincipal.Current.GetAuthorizationGroups())
+         using (PrincipalSearchResult<Principal> authorizationGroups = UserPrincipal.Current.GetAuthorizationGroups())
          {
-            return searchResult.Where(x => x.SamAccountName == "Administrators").Any();
+            return authorizationGroups.Where((Principal x) => x.Sid == new SecurityIdentifier("S-1-5-32-544")).Any();
          }
       }
    }
