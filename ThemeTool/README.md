@@ -1,2 +1,3 @@
 ## ThemeTool  
-© Microsoft Coporation
+From the Windows 7 Aero Troubleshooter  
+© Microsoft Coporation  
