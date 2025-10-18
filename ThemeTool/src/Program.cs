@@ -72,7 +72,7 @@ namespace ThemeApi
 			[MethodImpl(MethodImplOptions.InternalCall)]
 			public virtual extern void ApplyTheme([In][MarshalAs(UnmanagedType.BStr)] string bstrThemePath);
 
-      // Causes compile errors so I commeted it out.
+			// Causes compile errors so I commeted it out.
 			//[MethodImpl(MethodImplOptions.InternalCall)]
 			//public extern ThemeManagerClass();
 		}
