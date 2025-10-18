@@ -36,17 +36,35 @@ namespace HomeLab
                   if (item.Name == "elevate") continue;
                   if (item.Name == "script")
                   {
-                     FileInfo fi = new FileInfo(item.Value);
-                     if (fi.Extension == ".ps1")
+                     if (File.Exists(item.Value))
                      {
-                        string Script = File.ReadAllText(item.Value);
-                        PowerShellInstance.AddScript(Script);
+                        FileInfo fi = new FileInfo(item.Value);
+                        if (fi.Extension == ".ps1")
+                        {
+                           string Script = File.ReadAllText(item.Value);
+                           PowerShellInstance.AddScript(Script);
+                        }
+                        else
+                        {
+                           try
+                           {
+                              throw new ArgumentException(item.Value);
+                           }
+                           catch (Exception ex)
+                           {
+                              AllocConsole();
+                              Console.WriteLine(ex.ToString());
+                              Console.ReadKey();
+                              FreeConsole();
+                              Environment.Exit(1);
+                           }
+                        }
                      }
                      else
                      {
                         try
                         {
-                           throw new ArgumentException(item.Value);
+                           throw new FileNotFoundException(item.Value);
                         }
                         catch (Exception ex)
                         {
