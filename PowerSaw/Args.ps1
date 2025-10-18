@@ -3,4 +3,4 @@ param (
    [string]$user
 )
 
-Write-Information "Hello $user of $computer"
+Write-Host "Hello $user of $computer"
