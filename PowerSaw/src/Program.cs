@@ -46,34 +46,14 @@ namespace HomeLab
                         }
                         else
                         {
-                           try
-                           {
-                              throw new ArgumentException(item.Value);
-                           }
-                           catch (Exception ex)
-                           {
-                              AllocConsole();
-                              Console.WriteLine(ex.ToString());
-                              Console.ReadKey();
-                              FreeConsole();
-                              Environment.Exit(1);
-                           }
+                           // https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-#ERROR_BAD_ARGUMENTS
+                           Environment.Exit(160);
                         }
                      }
                      else
                      {
-                        try
-                        {
-                           throw new FileNotFoundException(item.Value);
-                        }
-                        catch (Exception ex)
-                        {
-                           AllocConsole();
-                           Console.WriteLine(ex.ToString());
-                           Console.ReadKey();
-                           FreeConsole();
-                           Environment.Exit(1);
-                        }
+                        // https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-#ERROR_FILE_NOT_FOUND
+                        Environment.Exit(2);
                      }
                      continue;
                   }
