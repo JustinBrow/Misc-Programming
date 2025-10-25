@@ -50,7 +50,9 @@ namespace HomeLab
          }
          DateTime pwdExpiration = Convert.ToDateTime(pwdLastSet).AddMonths(8);
          TimeSpan timeUntilExpiration = pwdExpiration.Subtract(DateTime.UtcNow);
-         //MessageBox.Show(String.Format("{0} - {1} = {2}", pwdExpiration.ToLocalTime(), DateTime.UtcNow.ToLocalTime(), timeUntilExpiration.ToString()));
+         #if DEBUG
+         MessageBox.Show(String.Format("{0} - {1} = {2}", pwdExpiration.ToLocalTime(), DateTime.UtcNow.ToLocalTime(), timeUntilExpiration.ToString(@"d\d\ hh\h\ mm\m\ ss\s")));
+         #endif
          if (timeUntilExpiration.Days < 1)
          {
             result = MessageBox.Show("Your password expires today.\r\nDo you want to change it now?", "", MessageBoxButtons.YesNo);
@@ -67,10 +69,12 @@ namespace HomeLab
          {
             result = MessageBox.Show(String.Format("Your password expires in {0} days.\r\nDo you want to change it now?", timeUntilExpiration.Days), "", MessageBoxButtons.YesNo);
          }
-         /*else if (true)
+         #if DEBUG
+         else if (true)
          {
             result = MessageBox.Show(String.Format("Your password expires in {0} days.\r\nDo you want to change it now?", timeUntilExpiration.Days), "", MessageBoxButtons.YesNo);
-         }*/
+         }
+         #endif
          if (result == DialogResult.Yes)
          {
             Shell32.WindowsSecurity();
