@@ -1,5 +1,5 @@
 Option Explicit
-Dim ScriptDir, ProjectName, Compiled
+Dim ScriptDir, ProjectName
 Dim intReturn
 
 
