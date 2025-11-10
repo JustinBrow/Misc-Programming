@@ -24,7 +24,7 @@ End If
 intReturn = wshShell.Run("C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe" & _
    " /platform:AnyCpu" & _
    " /out:" & ScriptDir & "\out\release\" & ProjectName & ".exe" & _
-   " /target:winexe" & _
+   " /target:exe" & _
    " /optimize+" & _
    " " & ScriptDir & "\src\" & ProjectName & ".cs", 0, True)
 
@@ -34,7 +34,7 @@ ElseIf intReturn <> 0 Then
    wshShell.Run("cmd.exe /k" & "C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe" & _
    " /platform:AnyCpu" & _
    " /out:" & ScriptDir & "\out\release\" & ProjectName & ".exe" & _
-   " /target:winexe" & _
+   " /target:exe" & _
    " /optimize+" & _
    " " & ScriptDir & "\src\" & ProjectName & ".cs")
 End If
