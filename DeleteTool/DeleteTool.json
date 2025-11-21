@@ -1,0 +1,50 @@
+[
+    {
+        "path":  "%LOCALAPPDATA%\\Temp",
+        "days":  7
+    },
+    {
+        "path":  "Z:\\Downloads",
+        "days":  30
+    },
+    {
+        "path":  "%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\Content.MSO",
+        "days":  7
+    },
+    {
+        "path":  "%LOCALAPPDATA%\\Microsoft\\Windows\\INetCache\\IE",
+        "days":  7
+    },
+    {
+        "path":  "%APPDATA%\\Autodesk\\ACA 2024\\enu\\.WebView2",
+        "days":  7
+    },
+    {
+        "path":  "%LOCALAPPDATA%\\Autodesk\\ActivityInsights\\Common",
+        "days":  7
+    },
+    {
+        "path":  "%LOCALAPPDATA%\\Autodesk\\CER",
+        "days":  7
+    },
+    {
+        "path":  "%LOCALAPPDATA%\\Microsoft\\Office\\16.0\\Wef",
+        "days":  7
+    },
+    {
+        "path":  "%APPDATA%\\Smartsheet\\Cache",
+        "days":  7
+    },
+    {
+        "path":  "%APPDATA%\\Smartsheet\\Code Cache",
+        "days":  7
+    },
+    {
+        "path":  "%APPDATA%\\Slack\\Cache",
+        "days":  7
+    },
+    {
+        "path":  "%APPDATA%\\Slack\\Service Worker\\CacheStorage",
+        "days":  7
+    }
+]
