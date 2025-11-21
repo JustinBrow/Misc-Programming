@@ -8,14 +8,14 @@ namespace HomeLab
 {
    public static class Program
    {
-      private class Path
+      private class Config
       {
          public string path { get; set; }
          public int days { get; set; }
       }
       public static void Main()
       {
-         List<Path> Paths = new List<Path>();
+         List<Config> arguments = new List<Config>();
          JavaScriptSerializer serializer = new JavaScriptSerializer();
          #if DEBUG
          AllocConsole();
@@ -33,7 +33,7 @@ namespace HomeLab
          string JSON = File.ReadAllText(configPath);
          try
          {
-            Paths = serializer.Deserialize<List<Path>>(JSON);
+            arguments = serializer.Deserialize<List<Config>>(JSON);
          }
          catch (Exception ex)
          {
@@ -44,9 +44,9 @@ namespace HomeLab
             // https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-#ERROR_INVALID_DATA
             Environment.Exit(13);
          }
-         if (Paths.Count > 0)
+         if (arguments.Count > 0)
          {
-            foreach(Path arg in Paths)
+            foreach(Config arg in arguments)
             {
                string path = Environment.ExpandEnvironmentVariables(arg.path);
                DateTime days = DateTime.Now.AddDays(-(Math.Abs(arg.days)));
@@ -135,7 +135,7 @@ namespace HomeLab
                   {
                   }
                   #if DEBUG
-                  Console.WriteLine("Processed directory '{0}'. File count '{1}'", subdirectory, countFiles); // debug print
+                  Console.WriteLine("Processed directory '{0}'", subdirectory); // debug print
                   #endif
                }
             }
