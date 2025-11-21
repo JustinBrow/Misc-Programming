@@ -81,7 +81,7 @@ namespace HomeLab
       private static void ProcessDirectory(string targetDirectory, DateTime days)
       {
          string[] fileEntries;
-         string [] subdirectoryEntries;
+         string[] subdirectoryEntries;
          try
          {
             fileEntries = Directory.GetFiles(targetDirectory);
@@ -95,43 +95,49 @@ namespace HomeLab
             return;
          }
          
-         foreach(string fileName in fileEntries)
+         if (fileEntries.Length > 0)
          {
-            ProcessFile(fileName, days);
+            foreach(string fileName in fileEntries)
+            {
+               ProcessFile(fileName, days);
+            }
          }
          
-         foreach(string subdirectory in subdirectoryEntries)
+         if (subdirectoryEntries.Length > 0)
          {
-            int countFiles = 0;
-            DirectoryInfo di;
-            ProcessDirectory(subdirectory, days);
-            try
+            foreach(string subdirectory in subdirectoryEntries)
             {
-               di = new DirectoryInfo(subdirectory);
-               countFiles = di.GetFiles().Length;
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-               #if DEBUG
-               Console.WriteLine("Inaccessible directory '{0}'", subdirectory); // debug print
-               #endif
-               continue;
-            }
-            if (countFiles == 0)
-            {
+               int countFiles;
+               DirectoryInfo di;
+               ProcessDirectory(subdirectory, days);
                try
                {
-                  #if !DEBUG
-                  di.Attributes = FileAttributes.Normal;
-                  di.Delete();
+                  di = new DirectoryInfo(subdirectory);
+                  countFiles = di.GetFiles().Length;
+               }
+               catch (UnauthorizedAccessException ex)
+               {
+                  #if DEBUG
+                  Console.WriteLine("Inaccessible directory '{0}'", subdirectory); // debug print
+                  #endif
+                  continue;
+               }
+               if (countFiles == 0)
+               {
+                  try
+                  {
+                     #if !DEBUG
+                     di.Attributes = FileAttributes.Normal;
+                     di.Delete();
+                     #endif
+                  }
+                  catch (Exception ex)
+                  {
+                  }
+                  #if DEBUG
+                  Console.WriteLine("Processed directory '{0}'. File count '{1}'", subdirectory, countFiles); // debug print
                   #endif
                }
-               catch (Exception ex)
-               {
-               }
-               #if DEBUG
-               Console.WriteLine("Processed directory '{0}'. File count '{1}'", subdirectory, di.GetFiles().Length); // debug print
-               #endif
             }
          }
       }
