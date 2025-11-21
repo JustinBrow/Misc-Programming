@@ -10,5 +10,5 @@ Delete files/folders from `AppData\Local\Temp` if they are older than 7 days and
 `C:\Program Files\HomeLab\DeleteTool.exe "%LOCALAPPDATA%\Temp",7 "Z:\Downloads",30`
 
 ### Usage V3
-Config is now a JSON file.  
+Config is now a JSON file. Store the JSON file with the application executable.  
 `C:\Program Files\HomeLab\DeleteTool.exe`
