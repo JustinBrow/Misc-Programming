@@ -1,5 +1,5 @@
 ## DeleteTool
-File/Folder GPOs can't make decisions based on file properties. Thus "DeleteTool" was born.
+File/Folder GPOs and FSLogix redirections can't make decisions based on file properties. Thus "DeleteTool" was born.
 
 ### Usage V1
 Delete files/folders from `AppData\Local\Temp` and `Z:\Downloads` if they are older than 7 days.  
