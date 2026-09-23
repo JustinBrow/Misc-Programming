@@ -1,5 +1,5 @@
 ## WAM Roamer  
-
+Tyring to make FSLogix RoamIdentity work. Not using batch in $CurrentYear.
 
 ### Compilation  
 
