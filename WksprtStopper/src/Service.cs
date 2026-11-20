@@ -8,7 +8,7 @@ using System.ServiceProcess;
 //https://www.c-sharpcorner.com/article/create-windows-services-in-c-sharp/
 namespace HomeLab
 {
-   public partial class RemoteAppStopper : ServiceBase
+   public partial class WksprtStopper : ServiceBase
    {
       ManagementEventWatcher watcher = new ManagementEventWatcher();
       
