@@ -44,14 +44,13 @@ namespace HomeLab
       
       protected override void OnStop()
       {
-         RequestAdditionalTime(5000);
+         //RequestAdditionalTime(5000);
          WriteToFile(DateTime.Now + ": OOMManagerService stopping");
          timer.Stop();
       }
       
       protected override void OnShutdown()
       {
-         RequestAdditionalTime(5000);
          WriteToFile(DateTime.Now + ": Recieved shutdown signal");
          WriteToFile(DateTime.Now + ": OOMManagerService stopping");
          timer.Stop();
