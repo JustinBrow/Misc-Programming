@@ -49,7 +49,7 @@ namespace HomeLab
          
          using (ServiceController service = new ServiceController("WksprtStopper"))
          {
-            advapi32.ChangeServiceConfig(service, Path.Combine(installPath, "WksprtStopper.exe"), "");
+            Advapi32.ChangeServiceConfig(service, Path.Combine(installPath, "WksprtStopper.exe"), "");
             service.Start();
          }
       }
