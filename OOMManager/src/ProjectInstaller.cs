@@ -64,7 +64,15 @@ namespace HomeLab
       {
          if (Directory.Exists(installPath))
          {
-            Directory.Delete(installPath, true);
+            try
+            {
+               Directory.Delete(installPath, true);
+            }
+            catch (IOException ex)
+            {
+               Console.WriteLine(ex);
+               Console.WriteLine("This is expected if you invoked uninstall against the service executable using the service executable.");
+            }
          }
          
          if (Directory.Exists(basePath))
