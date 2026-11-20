@@ -8,7 +8,7 @@ using System.ServiceProcess;
 
 namespace HomeLab.WindowsAPIs
 {
-   internal static class advapi32
+   internal static class Advapi32
    {
       [DllImport("advapi32.dll", EntryPoint = "ChangeServiceConfigW", ExactSpelling = true,
          CharSet = CharSet.Unicode, SetLastError = true)]
