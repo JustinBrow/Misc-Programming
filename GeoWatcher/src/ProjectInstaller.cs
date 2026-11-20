@@ -7,6 +7,8 @@ using System.IO;
 using System.ServiceProcess;
 using HomeLab.WindowsAPIs;
 
+//http://csharptest.net/955/building-a-windows-service-part-4-extending-the-service-installer/index.html
+
 namespace HomeLab
 {
    [RunInstaller(true)]
@@ -71,7 +73,7 @@ namespace HomeLab
             catch (IOException ex)
             {
                Console.WriteLine(ex);
-               Console.WriteLine("This is expected if you invoked unnstall against the service executable using the service executable.");
+               Console.WriteLine("This is expected if you invoked uninstall against the service executable using the service executable.");
             }
          }
          
